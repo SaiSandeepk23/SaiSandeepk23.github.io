@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sai Sandeep Kethiboina — AI &amp; Machine Learning Engineer</title>
+<meta name="description" content="Sai Sandeep Kethiboina — AI &amp; Machine Learning Engineer and Data Scientist with 5+ years across Telecom, Banking, and Healthcare. LLMs, RAG, MLOps, and production ML systems." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#0a0a0b;
+    --ink-2:#101012;
+    --ink-3:#16161a;
+    --paper:#ECEAE0;
+    --dim:#8b897e;
+    --dim-2:#5d5b53;
+    --line:rgba(236,234,224,.10);
+    --line-strong:rgba(236,234,224,.20);
+    --acid:#c8f94e;
+    --acid-dim:rgba(200,249,78,.14);
+    --rust:#ff5d3b;
+    --font-display:"Fraunces",Georgia,serif;
+    --font-mono:"JetBrains Mono",ui-monospace,monospace;
+    --font-body:"Hanken Grotesk",-apple-system,sans-serif;
+    --maxw:1280px;
+    --pad:clamp(20px,5vw,72px);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--font-body);
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    cursor:auto;
+  }
+  ::selection{background:var(--acid);color:#0a0a0b}
+
+  /* ---------- atmosphere: grid + grain + cursor glow ---------- */
+  .bg-grid{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 85%);
+    -webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 85%);
+    opacity:.55;
+  }
+  .bg-grain{
+    position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .cursor-glow{
+    position:fixed;top:0;left:0;width:520px;height:520px;z-index:1;pointer-events:none;
+    border-radius:50%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(200,249,78,.10),transparent 60%);
+    transition:opacity .4s;opacity:0;
+  }
+
+  /* ---------- layout shell ---------- */
+  .shell{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+  /* ---------- left index rail ---------- */
+  .rail{
+    position:fixed;left:max(24px,calc((100vw - var(--maxw))/2 + 20px));top:0;height:100vh;
+    display:flex;flex-direction:column;justify-content:center;gap:18px;z-index:40;
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;
+  }
+  .rail a{
+    color:var(--dim-2);text-decoration:none;display:flex;align-items:center;gap:10px;
+    transition:color .3s,transform .3s;text-transform:uppercase;
+  }
+  .rail a .tick{width:14px;height:1px;background:currentColor;transition:width .3s,background .3s}
+  .rail a:hover,.rail a.active{color:var(--paper)}
+  .rail a.active{color:var(--acid)}
+  .rail a.active .tick{width:30px;background:var(--acid)}
+  @media(max-width:1100px){.rail{display:none}}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px var(--pad);font-family:var(--font-mono);font-size:11.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+    mix-blend-mode:difference;
+  }
+  .topbar .brand{color:var(--paper);font-weight:700}
+  .topbar .status{display:flex;align-items:center;gap:8px}
+  .topbar .dot{width:7px;height:7px;border-radius:50%;background:var(--acid);
+    box-shadow:0 0 0 0 rgba(200,249,78,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(200,249,78,.5)}70%{box-shadow:0 0 0 9px rgba(200,249,78,0)}100%{box-shadow:0 0 0 0 rgba(200,249,78,0)}}
+
+  /* ---------- section scaffolding ---------- */
+  section{position:relative;padding:clamp(90px,12vh,150px) 0;scroll-margin-top:40px}
+  .eyebrow{
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--acid);display:flex;align-items:center;gap:14px;margin-bottom:30px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--acid)}
+  .eyebrow .num{color:var(--dim-2)}
+
+  /* ---------- HERO ---------- */
+  #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
+  .hero-tag{
+    font-family:var(--font-mono);font-size:clamp(11px,1.4vw,13px);letter-spacing:.2em;
+    text-transform:uppercase;color:var(--dim);margin-bottom:26px;
+    overflow:hidden;
+  }
+  .hero-tag span{display:inline-block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+  .hero-name{
+    font-family:var(--font-display);
+    font-weight:340;
+    font-size:clamp(48px,11.5vw,168px);
+    line-height:.92;letter-spacing:-.02em;
+    font-variation-settings:"opsz" 144;
+  }
+  .hero-name .ln{display:block;overflow:hidden}
+  .hero-name .ln span{display:block;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}
+  .hero-name em{font-style:italic;color:var(--acid);font-weight:360}
+  .hero-sub{
+    margin-top:34px;max-width:620px;font-size:clamp(16px,1.9vw,20px);
+    color:var(--paper);opacity:.82;font-weight:330;line-height:1.5;
+    animation:rise 1.1s .5s both;
+  }
+  .hero-sub b{color:var(--paper);font-weight:600}
+
+  .stats{
+    margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+    animation:rise 1.1s .7s both;
+  }
+  .stat{background:var(--ink);padding:22px 24px;position:relative}
+  .stat .v{font-family:var(--font-mono);font-weight:700;font-size:clamp(26px,3.4vw,42px);
+    letter-spacing:-.03em;line-height:1;color:var(--paper)}
+  .stat .v i{font-style:normal;color:var(--acid)}
+  .stat .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dim);margin-top:12px}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  .scroll-hint{
+    position:absolute;bottom:36px;left:var(--pad);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--dim-2);display:flex;align-items:center;gap:12px;animation:rise 1s 1s both;
+  }
+  .scroll-hint .bar{width:1px;height:40px;background:linear-gradient(var(--acid),transparent);
+    animation:drop 1.8s infinite}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* ---------- marquee ---------- */
+  .ticker{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;padding:16px 0;background:var(--ink-2);
+    position:relative;z-index:2;
+  }
+  .ticker-track{display:inline-flex;gap:0;animation:scroll 38s linear infinite;will-change:transform}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker span{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;
+    color:var(--dim);text-transform:uppercase;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
+  .ticker span::after{content:"◆";color:var(--acid);font-size:8px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr}}
+  .lead{font-family:var(--font-display);font-weight:330;font-size:clamp(24px,3.4vw,40px);
+    line-height:1.32;letter-spacing:-.01em}
+  .lead em{font-style:italic;color:var(--acid)}
+  .about-body{color:var(--dim);font-size:16px;line-height:1.7;margin-top:26px;max-width:60ch}
+  .about-body b{color:var(--paper);font-weight:600}
+  .meta-card{border:1px solid var(--line);background:var(--ink-2)}
+  .meta-row{display:flex;justify-content:space-between;gap:16px;padding:16px 20px;
+    border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:12.5px}
+  .meta-row:last-child{border-bottom:0}
+  .meta-row .mk{color:var(--dim-2);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px}
+  .meta-row .mv{color:var(--paper);text-align:right}
+  .meta-row .mv b{color:var(--acid);font-weight:700}
+
+  /* ---------- EXPERIENCE ---------- */
+  .xp{border-top:1px solid var(--line-strong)}
+  .xp-item{
+    display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,60px);
+    padding:46px 0;border-bottom:1px solid var(--line);position:relative;
+    transition:background .4s;
+  }
+  .xp-item:hover{background:linear-gradient(90deg,rgba(200,249,78,.03),transparent)}
+  @media(max-width:760px){.xp-item{grid-template-columns:1fr;gap:18px;padding:36px 0}}
+  .xp-side .when{font-family:var(--font-mono);font-size:12px;color:var(--acid);letter-spacing:.06em}
+  .xp-side .where{font-family:var(--font-mono);font-size:11px;color:var(--dim-2);
+    margin-top:8px;letter-spacing:.08em;text-transform:uppercase}
+  .xp-side .sector{display:inline-block;margin-top:16px;font-family:var(--font-mono);font-size:10px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
+    border:1px solid var(--line-strong);padding:4px 10px;border-radius:2px}
+  .xp-role{font-family:var(--font-display);font-weight:380;font-size:clamp(26px,3.6vw,40px);
+    line-height:1.05;letter-spacing:-.01em;margin-bottom:6px}
+  .xp-co{font-family:var(--font-mono);font-size:13px;color:var(--dim);margin-bottom:24px}
+  .xp-co b{color:var(--paper)}
+  .xp-list{list-style:none;display:flex;flex-direction:column;gap:14px;max-width:68ch}
+  .xp-list li{position:relative;padding-left:26px;color:var(--dim);font-size:15.5px;line-height:1.6}
+  .xp-list li::before{content:"→";position:absolute;left:0;color:var(--acid);font-family:var(--font-mono)}
+  .xp-list li b{color:var(--paper);font-weight:600}
+  .xp-list li .pct{color:var(--acid);font-family:var(--font-mono);font-weight:600;font-size:14px}
+
+  /* ---------- CAPABILITIES ---------- */
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line)}
+  @media(max-width:880px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.cap-grid{grid-template-columns:1fr}}
+  .cap{background:var(--ink);padding:26px 24px;transition:background .35s}
+  .cap:hover{background:var(--ink-3)}
+  .cap h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--acid);margin-bottom:16px;display:flex;justify-content:space-between}
+  .cap h4 span{color:var(--dim-2)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:var(--font-mono);font-size:11.5px;color:var(--dim);
+    border:1px solid var(--line-strong);padding:5px 10px;border-radius:2px;
+    transition:color .25s,border-color .25s,background .25s}
+  .cap:hover .chip{color:var(--paper)}
+  .chip:hover{color:#0a0a0b;background:var(--acid);border-color:var(--acid)}
+
+  /* ---------- IMPACT ---------- */
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line)}
+  @media(max-width:760px){.impact-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.impact-grid{grid-template-columns:1fr}}
+  .imp{background:var(--ink);padding:38px 28px;position:relative;overflow:hidden}
+  .imp .big{font-family:var(--font-mono);font-weight:700;font-size:clamp(40px,6vw,68px);
+    line-height:.9;letter-spacing:-.04em;color:var(--paper)}
+  .imp .big i{font-style:normal;color:var(--acid)}
+  .imp .lbl{margin-top:16px;color:var(--dim);font-size:14px;line-height:1.45;max-width:24ch}
+  .imp::after{content:"";position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;
+    border:1px solid var(--line);border-radius:50%;opacity:.5}
+
+  /* ---------- CONTACT ---------- */
+  #contact{padding-bottom:60px}
+  .contact-h{font-family:var(--font-display);font-weight:330;font-size:clamp(40px,8vw,108px);
+    line-height:.95;letter-spacing:-.02em}
+  .contact-h em{font-style:italic;color:var(--acid)}
+  .links{margin-top:50px;border-top:1px solid var(--line-strong)}
+  .link{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+    padding:24px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--paper);
+    transition:padding .35s,color .3s;position:relative}
+  .link:hover{padding-left:24px;color:var(--acid)}
+  .link .lk{font-family:var(--font-display);font-size:clamp(22px,3vw,34px);font-weight:360}
+  .link .lv{font-family:var(--font-mono);font-size:12.5px;color:var(--dim);letter-spacing:.04em}
+  .link:hover .lv{color:var(--paper)}
+  .link .arr{font-family:var(--font-mono);color:var(--acid);opacity:0;transition:opacity .3s,transform .3s;transform:translateX(-8px)}
+  .link:hover .arr{opacity:1;transform:translateX(0)}
+
+  footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    padding:50px 0 30px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--dim-2);border-top:1px solid var(--line);margin-top:60px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @keyframes rise{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-grain"></div>
+<div class="cursor-glow" id="glow"></div>
+
+<div class="topbar">
+  <div class="brand">SSK<span style="color:var(--acid)">.</span></div>
+  <div class="status"><span class="dot"></span> Open to opportunities · USA</div>
+</div>
+
+<nav class="rail" aria-label="Section index">
+  <a href="#hero" data-sec="hero"><span class="tick"></span>Index</a>
+  <a href="#about" data-sec="about"><span class="tick"></span>About</a>
+  <a href="#experience" data-sec="experience"><span class="tick"></span>Experience</a>
+  <a href="#stack" data-sec="stack"><span class="tick"></span>Stack</a>
+  <a href="#impact" data-sec="impact"><span class="tick"></span>Impact</a>
+  <a href="#contact" data-sec="contact"><span class="tick"></span>Contact</a>
+</nav>
+
+<main class="shell">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag"><span>AI &amp; Machine Learning Engineer / Data Scientist</span></div>
+    <h1 class="hero-name">
+      <span class="ln"><span style="animation-delay:.05s">Sai Sandeep</span></span>
+      <span class="ln"><span style="animation-delay:.18s"><em>Kethiboina</em></span></span>
+    </h1>
+    <p class="hero-sub">
+      Five-plus years designing, building, and shipping <b>production AI/ML, deep learning, and
+      generative-AI systems</b> across telecommunications, banking, and healthcare — from
+      raw data pipelines to LLM-powered assistants serving millions of records.
+    </p>
+
+    <div class="stats">
+      <div class="stat"><div class="v">05<i>+</i></div><div class="k">Years in production ML</div></div>
+      <div class="stat"><div class="v">03</div><div class="k">Regulated industries</div></div>
+      <div class="stat"><div class="v">150M<i>+</i></div><div class="k">Records processed</div></div>
+      <div class="stat"><div class="v">90<i>%+</i></div><div class="k">LLM response relevance</div></div>
+    </div>
+
+    <div class="scroll-hint"><span class="bar"></span> Scroll · 00 → 05</div>
+  </section>
+</main>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Python<span></span></span><span>PyTorch</span><span>TensorFlow</span><span>LangChain</span><span>RAG</span><span>LLMs</span><span>Agentic AI</span><span>FAISS</span><span>Pinecone</span><span>Apache Spark</span><span>Airflow</span><span>MLflow</span><span>Kubeflow</span><span>AWS SageMaker</span><span>Vertex AI</span><span>Kubernetes</span><span>FastAPI</span><span>Snowflake</span>
+    <span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>LangChain</span><span>RAG</span><span>LLMs</span><span>Agentic AI</span><span>FAISS</span><span>Pinecone</span><span>Apache Spark</span><span>Airflow</span><span>MLflow</span><span>Kubeflow</span><span>AWS SageMaker</span><span>Vertex AI</span><span>Kubernetes</span><span>FastAPI</span><span>Snowflake</span>
+  </div>
+</div>
+
+<main class="shell">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="eyebrow reveal"><span class="num">01</span> Profile</div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="lead">AI/ML engineer who turns messy enterprise data into <em>predictive systems</em> and <em>LLM products</em> that move real business metrics.</p>
+        <p class="about-body">
+          I design end-to-end machine learning and generative-AI solutions — <b>predictive analytics,
+          deep learning, NLP, time-series forecasting, fraud detection, and RAG-based assistants</b> —
+          and carry them all the way to production with MLOps/LLMOps discipline. My work spans
+          <b>telecom, banking, and healthcare</b>, where reliability, governance, and explainability
+          are non-negotiable. I care about the unglamorous parts: clean pipelines, monitored models,
+          and outcomes you can measure.
+        </p>
+      </div>
+      <div class="meta-card reveal">
+        <div class="meta-row"><span class="mk">Discipline</span><span class="mv">AI / ML Engineering</span></div>
+        <div class="meta-row"><span class="mk">Experience</span><span class="mv"><b>5+ years</b></span></div>
+        <div class="meta-row"><span class="mk">Current</span><span class="mv">AI/ML Eng · CVS Health</span></div>
+        <div class="meta-row"><span class="mk">Education</span><span class="mv">M.S. Computers &amp; Information Science</span></div>
+        <div class="meta-row"><span class="mk">Domains</span><span class="mv">Telecom · Banking · Healthcare</span></div>
+        <div class="meta-row"><span class="mk">Based</span><span class="mv">United States</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="eyebrow reveal"><span class="num">02</span> Experience</div>
+    <div class="xp">
+
+      <article class="xp-item reveal">
+        <div class="xp-side">
+          <div class="when">Feb 2025 — Present</div>
+          <div class="where">Texas, USA</div>
+          <div class="sector">Healthcare</div>
+        </div>
+        <div class="xp-main">
+          <h3 class="xp-role">AI / Machine Learning Engineer</h3>
+          <div class="xp-co"><b>CVS Health</b></div>
+          <ul class="xp-list">
+            <li>Built end-to-end AI/ML pipelines (Spark, Airflow, ETL, feature engineering, deployment &amp; monitoring) across <b>50M+ healthcare records</b>, lifting data availability <span class="pct">+40%</span>.</li>
+            <li>Shipped deep-learning models for patient risk stratification, readmission &amp; claims-fraud detection, improving model accuracy <span class="pct">+25%</span>.</li>
+            <li>Engineered <b>LLM healthcare assistants</b> using RAG, vector search, FAISS &amp; Pinecone with <span class="pct">90%+</span> response relevance.</li>
+            <li>Automated clinical documentation &amp; coding with GenAI (OpenAI, LangChain, fine-tuning, LoRA), cutting manual effort <span class="pct">−35%</span>.</li>
+            <li>Stood up enterprise MLOps (MLflow, Kubeflow, CI/CD, model registry), reducing deployment time <span class="pct">−60%</span> at 99.9% availability.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xp-item reveal">
+        <div class="xp-side">
+          <div class="when">Feb 2024 — Dec 2024</div>
+          <div class="where">Texas, USA</div>
+          <div class="sector">Banking</div>
+        </div>
+        <div class="xp-main">
+          <h3 class="xp-role">Machine Learning Engineer</h3>
+          <div class="xp-co"><b>Capital One</b></div>
+          <ul class="xp-list">
+            <li>Delivered ML/DL &amp; predictive-analytics models for credit risk, fraud, segmentation &amp; loan-default prediction, improving accuracy <span class="pct">+30%</span>.</li>
+            <li>Built scalable ETL &amp; real-time pipelines (Spark, Airflow, PostgreSQL, MongoDB), reducing data-processing time <span class="pct">−45%</span>.</li>
+            <li>Engineered <b>LLM banking assistants</b> with RAG, semantic search, FAISS &amp; Pinecone at <span class="pct">90%+</span> response accuracy.</li>
+            <li>Designed GenAI apps to automate service, document analysis &amp; regulatory reporting, cutting manual effort <span class="pct">−40%</span>.</li>
+            <li>Implemented time-series forecasting &amp; anomaly detection for transaction monitoring and fraud prevention.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xp-item reveal">
+        <div class="xp-side">
+          <div class="when">Jun 2019 — Nov 2022</div>
+          <div class="where">Hyderabad, India</div>
+          <div class="sector">Telecom</div>
+        </div>
+        <div class="xp-main">
+          <h3 class="xp-role">Data Scientist</h3>
+          <div class="xp-co"><b>Jio</b></div>
+          <ul class="xp-list">
+            <li>Modeled subscriber behavior &amp; churn (Scikit-learn, XGBoost, Spark MLlib, PySpark), improving customer retention <span class="pct">+25%</span>.</li>
+            <li>Built ETL &amp; data-lake solutions (Airflow, Spark, Hadoop, Hive, Snowflake, Cassandra) over <b>100M+ records</b>, cutting processing time <span class="pct">−40%</span>.</li>
+            <li>Processed real-time telecom streams (Kafka, Spark Streaming) to monitor network health, reducing incident resolution time <span class="pct">−30%</span>.</li>
+            <li>Developed forecasting, segmentation &amp; demand models for capacity planning and subscriber growth.</li>
+            <li>Built executive dashboards (Power BI, Tableau) tracking ARPU, CLV &amp; churn, raising decision efficiency <span class="pct">+35%</span>.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack">
+    <div class="eyebrow reveal"><span class="num">03</span> Stack &amp; Capabilities</div>
+    <div class="cap-grid">
+      <div class="cap reveal"><h4>Languages <span>/01</span></h4><div class="chips">
+        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">Scala</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">Bash</span>
+      </div></div>
+      <div class="cap reveal"><h4>AI / ML <span>/02</span></h4><div class="chips">
+        <span class="chip">Deep Learning</span><span class="chip">NLP</span><span class="chip">Computer Vision</span><span class="chip">Reinforcement Learning</span><span class="chip">Time-Series</span><span class="chip">Feature Eng.</span>
+      </div></div>
+      <div class="cap reveal"><h4>GenAI &amp; LLMs <span>/03</span></h4><div class="chips">
+        <span class="chip">OpenAI</span><span class="chip">Hugging Face</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">LlamaIndex</span><span class="chip">RAG</span><span class="chip">LoRA / PEFT</span><span class="chip">Agentic AI</span>
+      </div></div>
+      <div class="cap reveal"><h4>Frameworks <span>/04</span></h4><div class="chips">
+        <span class="chip">TensorFlow</span><span class="chip">PyTorch</span><span class="chip">Scikit-learn</span><span class="chip">Keras</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">CatBoost</span>
+      </div></div>
+      <div class="cap reveal"><h4>Data &amp; Vector <span>/05</span></h4><div class="chips">
+        <span class="chip">Apache Spark</span><span class="chip">Kafka</span><span class="chip">Hadoop</span><span class="chip">Airflow</span><span class="chip">Snowflake</span><span class="chip">FAISS</span><span class="chip">Pinecone</span><span class="chip">ChromaDB</span>
+      </div></div>
+      <div class="cap reveal"><h4>Cloud &amp; MLOps <span>/06</span></h4><div class="chips">
+        <span class="chip">AWS SageMaker</span><span class="chip">Vertex AI</span><span class="chip">Azure ML</span><span class="chip">Databricks</span><span class="chip">MLflow</span><span class="chip">Kubeflow</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">CI/CD</span>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact">
+    <div class="eyebrow reveal"><span class="num">04</span> Impact, by the numbers</div>
+    <div class="impact-grid">
+      <div class="imp reveal"><div class="big">150M<i>+</i></div><div class="lbl">Healthcare &amp; telecom records processed in production pipelines</div></div>
+      <div class="imp reveal"><div class="big"><i>−</i>60<i>%</i></div><div class="lbl">Model deployment time via enterprise MLOps</div></div>
+      <div class="imp reveal"><div class="big"><i>+</i>25<i>%</i></div><div class="lbl">Model accuracy on patient-risk &amp; fraud detection</div></div>
+      <div class="imp reveal"><div class="big">99.9<i>%</i></div><div class="lbl">Availability on production AI serving infrastructure</div></div>
+      <div class="imp reveal"><div class="big"><i>−</i>45<i>%</i></div><div class="lbl">Data-processing time on real-time banking pipelines</div></div>
+      <div class="imp reveal"><div class="big"><i>+</i>35<i>%</i></div><div class="lbl">Decision efficiency from analytics &amp; executive dashboards</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="eyebrow reveal"><span class="num">05</span> Contact</div>
+    <h2 class="contact-h reveal">Let's build something<br><em>measurable.</em></h2>
+    <div class="links reveal">
+      <a class="link" href="mailto:saisandeepk1999@gmail.com">
+        <span class="lk">Email</span><span class="lv">saisandeepk1999@gmail.com</span><span class="arr">↗</span>
+      </a>
+      <a class="link" href="https://linkedin.com/in/saisandeepkethiboina" target="_blank" rel="noopener">
+        <span class="lk">LinkedIn</span><span class="lv">in/saisandeepkethiboina</span><span class="arr">↗</span>
+      </a>
+      <a class="link" href="https://github.com/SaiSandeepk23" target="_blank" rel="noopener">
+        <span class="lk">GitHub</span><span class="lv">github.com/SaiSandeepk23</span><span class="arr">↗</span>
+      </a>
+      <a class="link" href="tel:+15612141251">
+        <span class="lk">Phone</span><span class="lv">+1 (561) 214-1251</span><span class="arr">↗</span>
+      </a>
+    </div>
+
+    <footer>
+      <span>Sai Sandeep Kethiboina</span>
+      <span>AI / ML Engineer · Data Scientist</span>
+      <span>© 2026 · Built with intent</span>
+    </footer>
+  </section>
+</main>
+
+<script>
+  // active-section index rail
+  const links = document.querySelectorAll('.rail a');
+  const secs = [...links].map(a => document.getElementById(a.dataset.sec));
+  const navObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id = e.target.id;
+        links.forEach(a=>a.classList.toggle('active', a.dataset.sec===id));
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>s && navObs.observe(s));
+
+  // scroll reveal
+  const revObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target);} });
+  },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay = (i % 6 * 0.06) + 's';
+    revObs.observe(el);
+  });
+
+  // cursor glow (pointer-fine only)
+  const glow = document.getElementById('glow');
+  if(window.matchMedia('(pointer:fine)').matches){
+    window.addEventListener('mousemove', (e)=>{
+      glow.style.opacity = 1;
+      glow.style.left = e.clientX + 'px';
+      glow.style.top  = e.clientY + 'px';
+    });
+    window.addEventListener('mouseleave', ()=> glow.style.opacity = 0);
+  }
+</script>
+</body>
+</html>
