@@ -235,8 +235,12 @@
   .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
   @media(max-width:760px){.work-grid{grid-template-columns:1fr}}
   .proj{background:var(--ink);padding:30px 28px;display:flex;flex-direction:column;gap:14px;
-    text-decoration:none;color:var(--paper);position:relative;transition:background .35s}
+    text-decoration:none;color:var(--paper);position:relative;transition:background .35s;overflow:hidden}
   .proj:hover{background:var(--ink-3)}
+  .proj .pimg{display:block;width:calc(100% + 56px);margin:-30px -28px 8px;aspect-ratio:16/9;
+    object-fit:cover;border-bottom:1px solid var(--line);
+    filter:grayscale(.15) brightness(.9) contrast(1.02);transition:filter .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+  .proj:hover .pimg{filter:none;transform:scale(1.03)}
   .proj .ptop{display:flex;justify-content:space-between;align-items:center;
     font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
   .proj .pcat{color:var(--acid)}
@@ -483,6 +487,7 @@
     <div class="work-grid">
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/rag-chatbot" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/01-rag.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">LLM</span><span class="pidx">/01</span></div>
         <h3 class="ptitle">Local RAG Chatbot</h3>
         <p class="pblurb">Fully local retrieval-augmented chatbot: ingests and embeds Markdown docs into a Chroma vector store and answers via a llama.cpp-served LLM. FastAPI backend with streaming chat, document upload, conversation memory, and incremental re-indexing; React + TypeScript frontend.</p>
@@ -491,6 +496,7 @@
       </a>
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/generating-synthetic-data-using-gans" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/02-gans.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">Generative AI</span><span class="pidx">/02</span></div>
         <h3 class="ptitle">Synthetic Tabular Data with GANs</h3>
         <p class="pblurb">TGAN/CTGAN generation of synthetic healthcare records, evaluated across statistical similarity (PCA, autoencoders, clustering), a custom privacy-at-risk metric, and downstream ML utility on length-of-stay and mortality prediction.</p>
@@ -499,6 +505,7 @@
       </a>
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/mlops-app" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/03-mlops.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">MLOps</span><span class="pidx">/03</span></div>
         <h3 class="ptitle">End-to-End MLOps on GCP</h3>
         <p class="pblurb">Reference pipeline: Prefect ETL of SF 311 data into BigQuery, dbt transforms, MLflow experiment tracking, and a scikit-learn model served via FastAPI on Cloud Run — provisioned with Terraform and shipped through GitHub Actions.</p>
@@ -507,6 +514,7 @@
       </a>
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/create-million-parameter-llm-from-scratch" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/04-llama.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">LLM</span><span class="pidx">/04</span></div>
         <h3 class="ptitle">LLaMA From Scratch · 2.3M params</h3>
         <p class="pblurb">A 2.3M-parameter LLaMA-style language model implemented from scratch in PyTorch — RMSNorm, rotary positional embeddings (RoPE), and SwiGLU — trained on character-level TinyShakespeare.</p>
@@ -515,6 +523,7 @@
       </a>
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/time-series-forecasting-python" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/05-timeseries.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">Time Series</span><span class="pidx">/05</span></div>
         <h3 class="ptitle">Time-Series Forecasting Benchmark</h3>
         <p class="pblurb">End-to-end forecasting on the Beijing PM2.5 dataset benchmarking ~25 approaches — from ARIMA/SARIMAX and Holt-Winters to XGBoost/LightGBM and LSTM/DeepAR/Prophet — scored on MAE, RMSE, MAPE, and R².</p>
@@ -523,6 +532,7 @@
       </a>
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/computer-vision-projects" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/06-cv.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">Computer Vision</span><span class="pidx">/06</span></div>
         <h3 class="ptitle">Computer Vision Collection</h3>
         <p class="pblurb">A set of CV notebooks: medical image classification (cataract, pneumonia, eye disease), traffic-sign and emotion recognition, driver-drowsiness detection, and OpenCV / YOLOv3 detection demos.</p>
@@ -531,6 +541,7 @@
       </a>
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/ecommerce-recommender" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/07-recommender.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">Recommenders</span><span class="pidx">/07</span></div>
         <h3 class="ptitle">Multi-Modal E-commerce Recommender</h3>
         <p class="pblurb">Fashion recommender exploring four strategies — collaborative, content-based, hybrid, and a multi-modal PyTorch model fusing user/product embeddings with ResNet50 image and SentenceTransformer text features over a GCN layer.</p>
@@ -539,6 +550,7 @@
       </a>
 
       <a class="proj reveal" href="https://github.com/SaiSandeepk23/etl-data-pipeline-using-airflow" target="_blank" rel="noopener">
+        <img class="pimg" src="assets/projects/08-etl.jpg" alt="" loading="lazy" width="1200" height="800" />
         <div class="ptop"><span class="pcat">Data Engineering</span><span class="pidx">/08</span></div>
         <h3 class="ptitle">Airflow ETL → Snowflake (SCD2)</h3>
         <p class="pblurb">An Apache Airflow DAG extracting HR and salary data from PostgreSQL to S3, diffing against the warehouse, and loading into Snowflake with Slowly Changing Dimension Type 2 to track salary history over time.</p>
