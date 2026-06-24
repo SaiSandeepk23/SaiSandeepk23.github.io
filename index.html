@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sai Sandeep Kethiboina — AI &amp; Machine Learning Engineer</title>
 <meta name="description" content="Sai Sandeep Kethiboina — AI &amp; Machine Learning Engineer and Data Scientist with 5+ years across Telecom, Banking, and Healthcare. LLMs, RAG, MLOps, and production ML systems." />
+<meta name="theme-color" content="#0a0a0b" />
+<meta name="author" content="Sai Sandeep Kethiboina" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sai Sandeep Kethiboina — AI &amp; Machine Learning Engineer" />
+<meta property="og:description" content="5+ years building production AI/ML, deep learning, and generative-AI systems across telecom, banking, and healthcare." />
+<meta property="og:url" content="https://saisandeepk23.github.io" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0b'/%3E%3Ctext x='50' y='72' font-family='monospace' font-size='62' font-weight='700' fill='%23c8f94e' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -181,7 +189,7 @@
     border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:12.5px}
   .meta-row:last-child{border-bottom:0}
   .meta-row .mk{color:var(--dim-2);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px}
-  .meta-row .mv{color:var(--paper);text-align:right}
+  .meta-row .mv{color:var(--paper);text-align:right;min-width:0;overflow-wrap:anywhere}
   .meta-row .mv b{color:var(--acid);font-weight:700}
 
   /* ---------- EXPERIENCE ---------- */
@@ -267,6 +275,15 @@
     *{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
   }
+
+  /* ---------- small-screen safety ---------- */
+  @media(max-width:560px){
+    .meta-row{flex-direction:column;gap:5px;align-items:flex-start}
+    .meta-row .mv{text-align:left}
+    .topbar .status .loc{display:none}
+    .hero-sub,.about-body,.xp-list{overflow-wrap:anywhere}
+  }
+  :focus-visible{outline:2px solid var(--acid);outline-offset:3px;border-radius:2px}
 </style>
 </head>
 <body>
@@ -276,7 +293,7 @@
 
 <div class="topbar">
   <div class="brand">SSK<span style="color:var(--acid)">.</span></div>
-  <div class="status"><span class="dot"></span> Open to opportunities · USA</div>
+  <div class="status"><span class="dot"></span> Open to opportunities<span class="loc"> · USA</span></div>
 </div>
 
 <nav class="rail" aria-label="Section index">
@@ -317,7 +334,7 @@
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>Python<span></span></span><span>PyTorch</span><span>TensorFlow</span><span>LangChain</span><span>RAG</span><span>LLMs</span><span>Agentic AI</span><span>FAISS</span><span>Pinecone</span><span>Apache Spark</span><span>Airflow</span><span>MLflow</span><span>Kubeflow</span><span>AWS SageMaker</span><span>Vertex AI</span><span>Kubernetes</span><span>FastAPI</span><span>Snowflake</span>
+    <span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>LangChain</span><span>RAG</span><span>LLMs</span><span>Agentic AI</span><span>FAISS</span><span>Pinecone</span><span>Apache Spark</span><span>Airflow</span><span>MLflow</span><span>Kubeflow</span><span>AWS SageMaker</span><span>Vertex AI</span><span>Kubernetes</span><span>FastAPI</span><span>Snowflake</span>
     <span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>LangChain</span><span>RAG</span><span>LLMs</span><span>Agentic AI</span><span>FAISS</span><span>Pinecone</span><span>Apache Spark</span><span>Airflow</span><span>MLflow</span><span>Kubeflow</span><span>AWS SageMaker</span><span>Vertex AI</span><span>Kubernetes</span><span>FastAPI</span><span>Snowflake</span>
   </div>
 </div>
