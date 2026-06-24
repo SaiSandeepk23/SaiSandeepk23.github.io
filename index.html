@@ -11,12 +11,33 @@
 <meta property="og:title" content="Sai Sandeep Kethiboina — AI &amp; Machine Learning Engineer" />
 <meta property="og:description" content="5+ years building production AI/ML, deep learning, and generative-AI systems across telecom, banking, and healthcare." />
 <meta property="og:url" content="https://saisandeepk23.github.io" />
+<meta property="og:image" content="https://saisandeepk23.github.io/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://saisandeepk23.github.io/og.png" />
+<link rel="canonical" href="https://saisandeepk23.github.io" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0b'/%3E%3Ctext x='50' y='72' font-family='monospace' font-size='62' font-weight='700' fill='%23c8f94e' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Hanken+Grotesk:wght@300;400;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sai Sandeep Kethiboina",
+  "jobTitle": "AI & Machine Learning Engineer",
+  "email": "mailto:saisandeepk1999@gmail.com",
+  "telephone": "+1-561-214-1251",
+  "url": "https://saisandeepk23.github.io",
+  "sameAs": ["https://github.com/SaiSandeepk23", "https://linkedin.com/in/saisandeepkethiboina"],
+  "knowsAbout": ["Machine Learning","Deep Learning","Generative AI","Large Language Models","RAG","MLOps","Data Engineering","NLP","Computer Vision","Time Series Forecasting"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "M.S. in Computers & Information Science" },
+  "worksFor": { "@type": "Organization", "name": "CVS Health" }
+}
+</script>
 
 <style>
   :root{
@@ -25,12 +46,11 @@
     --ink-3:#16161a;
     --paper:#ECEAE0;
     --dim:#8b897e;
-    --dim-2:#5d5b53;
+    --dim-2:#807e74;
     --line:rgba(236,234,224,.10);
     --line-strong:rgba(236,234,224,.20);
     --acid:#c8f94e;
     --acid-dim:rgba(200,249,78,.14);
-    --rust:#ff5d3b;
     --font-display:"Fraunces",Georgia,serif;
     --font-mono:"JetBrains Mono",ui-monospace,monospace;
     --font-body:"Hanken Grotesk",-apple-system,sans-serif;
@@ -48,11 +68,11 @@
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
-    cursor:auto;
   }
   ::selection{background:var(--acid);color:#0a0a0b}
+  a{color:inherit}
 
-  /* ---------- atmosphere: grid + grain + cursor glow ---------- */
+  /* ---------- atmosphere ---------- */
   .bg-grid{
     position:fixed;inset:0;z-index:0;pointer-events:none;
     background-image:
@@ -74,13 +94,12 @@
     transition:opacity .4s;opacity:0;
   }
 
-  /* ---------- layout shell ---------- */
   .shell{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
 
   /* ---------- left index rail ---------- */
   .rail{
     position:fixed;left:max(24px,calc((100vw - var(--maxw))/2 + 20px));top:0;height:100vh;
-    display:flex;flex-direction:column;justify-content:center;gap:18px;z-index:40;
+    display:flex;flex-direction:column;justify-content:center;gap:16px;z-index:40;
     font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;
   }
   .rail a{
@@ -120,15 +139,12 @@
   #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
   .hero-tag{
     font-family:var(--font-mono);font-size:clamp(11px,1.4vw,13px);letter-spacing:.2em;
-    text-transform:uppercase;color:var(--dim);margin-bottom:26px;
-    overflow:hidden;
+    text-transform:uppercase;color:var(--dim);margin-bottom:26px;overflow:hidden;
   }
   .hero-tag span{display:inline-block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
   .hero-name{
-    font-family:var(--font-display);
-    font-weight:340;
-    font-size:clamp(48px,11.5vw,168px);
-    line-height:.92;letter-spacing:-.02em;
+    font-family:var(--font-display);font-weight:340;
+    font-size:clamp(48px,11.5vw,168px);line-height:.92;letter-spacing:-.02em;
     font-variation-settings:"opsz" 144;
   }
   .hero-name .ln{display:block;overflow:hidden}
@@ -136,17 +152,21 @@
   .hero-name em{font-style:italic;color:var(--acid);font-weight:360}
   .hero-sub{
     margin-top:34px;max-width:620px;font-size:clamp(16px,1.9vw,20px);
-    color:var(--paper);opacity:.82;font-weight:330;line-height:1.5;
-    animation:rise 1.1s .5s both;
+    color:var(--paper);opacity:.82;font-weight:300;line-height:1.5;animation:rise 1.1s .5s both;
   }
-  .hero-sub b{color:var(--paper);font-weight:600}
+  .hero-sub b{color:var(--paper);font-weight:600;opacity:1}
+  .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;animation:rise 1.1s .62s both}
+  .btn{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    text-decoration:none;padding:13px 20px;border:1px solid var(--line-strong);color:var(--paper);
+    display:inline-flex;align-items:center;gap:9px;transition:background .3s,color .3s,border-color .3s}
+  .btn:hover{background:var(--acid);color:#0a0a0b;border-color:var(--acid)}
+  .btn.ghost:hover{background:transparent;color:var(--acid);border-color:var(--acid)}
 
   .stats{
-    margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--line);border:1px solid var(--line);
-    animation:rise 1.1s .7s both;
+    margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);animation:rise 1.1s .7s both;
   }
-  .stat{background:var(--ink);padding:22px 24px;position:relative}
+  .stat{background:var(--ink);padding:22px 24px}
   .stat .v{font-family:var(--font-mono);font-weight:700;font-size:clamp(26px,3.4vw,42px);
     letter-spacing:-.03em;line-height:1;color:var(--paper)}
   .stat .v i{font-style:normal;color:var(--acid)}
@@ -164,15 +184,12 @@
   @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
   /* ---------- marquee ---------- */
-  .ticker{
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    overflow:hidden;white-space:nowrap;padding:16px 0;background:var(--ink-2);
-    position:relative;z-index:2;
-  }
-  .ticker-track{display:inline-flex;gap:0;animation:scroll 38s linear infinite;will-change:transform}
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;padding:16px 0;background:var(--ink-2);position:relative;z-index:2}
+  .ticker-track{display:inline-flex;animation:scroll 38s linear infinite;will-change:transform}
   .ticker:hover .ticker-track{animation-play-state:paused}
-  .ticker span{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;
-    color:var(--dim);text-transform:uppercase;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
+  .ticker span{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:var(--dim);
+    text-transform:uppercase;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
   .ticker span::after{content:"◆";color:var(--acid);font-size:8px}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -194,19 +211,14 @@
 
   /* ---------- EXPERIENCE ---------- */
   .xp{border-top:1px solid var(--line-strong)}
-  .xp-item{
-    display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,60px);
-    padding:46px 0;border-bottom:1px solid var(--line);position:relative;
-    transition:background .4s;
-  }
+  .xp-item{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,60px);
+    padding:46px 0;border-bottom:1px solid var(--line);transition:background .4s}
   .xp-item:hover{background:linear-gradient(90deg,rgba(200,249,78,.03),transparent)}
   @media(max-width:760px){.xp-item{grid-template-columns:1fr;gap:18px;padding:36px 0}}
   .xp-side .when{font-family:var(--font-mono);font-size:12px;color:var(--acid);letter-spacing:.06em}
-  .xp-side .where{font-family:var(--font-mono);font-size:11px;color:var(--dim-2);
-    margin-top:8px;letter-spacing:.08em;text-transform:uppercase}
+  .xp-side .where{font-family:var(--font-mono);font-size:11px;color:var(--dim-2);margin-top:8px;letter-spacing:.08em;text-transform:uppercase}
   .xp-side .sector{display:inline-block;margin-top:16px;font-family:var(--font-mono);font-size:10px;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
-    border:1px solid var(--line-strong);padding:4px 10px;border-radius:2px}
+    letter-spacing:.14em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line-strong);padding:4px 10px;border-radius:2px}
   .xp-role{font-family:var(--font-display);font-weight:380;font-size:clamp(26px,3.6vw,40px);
     line-height:1.05;letter-spacing:-.01em;margin-bottom:6px}
   .xp-co{font-family:var(--font-mono);font-size:13px;color:var(--dim);margin-bottom:24px}
@@ -215,11 +227,37 @@
   .xp-list li{position:relative;padding-left:26px;color:var(--dim);font-size:15.5px;line-height:1.6}
   .xp-list li::before{content:"→";position:absolute;left:0;color:var(--acid);font-family:var(--font-mono)}
   .xp-list li b{color:var(--paper);font-weight:600}
-  .xp-list li .pct{color:var(--acid);font-family:var(--font-mono);font-weight:600;font-size:14px}
+  .xp-list li .pct{color:var(--acid);font-family:var(--font-mono);font-weight:500;font-size:14px}
+
+  /* ---------- WORK / PROJECTS ---------- */
+  .work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+  .work-head p{color:var(--dim);font-size:15px;max-width:52ch}
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media(max-width:760px){.work-grid{grid-template-columns:1fr}}
+  .proj{background:var(--ink);padding:30px 28px;display:flex;flex-direction:column;gap:14px;
+    text-decoration:none;color:var(--paper);position:relative;transition:background .35s}
+  .proj:hover{background:var(--ink-3)}
+  .proj .ptop{display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+  .proj .pcat{color:var(--acid)}
+  .proj .pidx{color:var(--dim-2)}
+  .proj .ptitle{font-family:var(--font-display);font-weight:380;font-size:clamp(21px,2.4vw,27px);
+    line-height:1.12;letter-spacing:-.01em;transition:color .3s}
+  .proj:hover .ptitle{color:var(--acid)}
+  .proj .pblurb{color:var(--dim);font-size:14px;line-height:1.6;flex:1}
+  .proj .ptags{display:flex;flex-wrap:wrap;gap:6px}
+  .proj .ptag{font-family:var(--font-mono);font-size:10.5px;color:var(--dim-2);
+    border:1px solid var(--line-strong);padding:3px 8px;border-radius:2px}
+  .proj .plink{font-family:var(--font-mono);font-size:11px;color:var(--dim-2);
+    display:flex;gap:8px;align-items:center;transition:color .3s;letter-spacing:.06em}
+  .proj:hover .plink{color:var(--acid)}
+  .work-all{margin-top:26px}
+  .work-all a{font-family:var(--font-mono);font-size:12.5px;color:var(--paper);text-decoration:none;
+    border-bottom:1px solid var(--line-strong);padding-bottom:3px;transition:color .3s,border-color .3s}
+  .work-all a:hover{color:var(--acid);border-color:var(--acid)}
 
   /* ---------- CAPABILITIES ---------- */
-  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line)}
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
   @media(max-width:880px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.cap-grid{grid-template-columns:1fr}}
   .cap{background:var(--ink);padding:26px 24px;transition:background .35s}
@@ -235,15 +273,16 @@
   .chip:hover{color:#0a0a0b;background:var(--acid);border-color:var(--acid)}
 
   /* ---------- IMPACT ---------- */
-  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line)}
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
   @media(max-width:760px){.impact-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:460px){.impact-grid{grid-template-columns:1fr}}
   .imp{background:var(--ink);padding:38px 28px;position:relative;overflow:hidden}
   .imp .big{font-family:var(--font-mono);font-weight:700;font-size:clamp(40px,6vw,68px);
     line-height:.9;letter-spacing:-.04em;color:var(--paper)}
   .imp .big i{font-style:normal;color:var(--acid)}
-  .imp .lbl{margin-top:16px;color:var(--dim);font-size:14px;line-height:1.45;max-width:24ch}
+  .imp .lbl{margin-top:16px;color:var(--dim);font-size:14px;line-height:1.45;max-width:26ch}
+  .imp .src{margin-top:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--dim-2)}
   .imp::after{content:"";position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;
     border:1px solid var(--line);border-radius:50%;opacity:.5}
 
@@ -275,13 +314,11 @@
     *{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
   }
-
-  /* ---------- small-screen safety ---------- */
   @media(max-width:560px){
     .meta-row{flex-direction:column;gap:5px;align-items:flex-start}
     .meta-row .mv{text-align:left}
     .topbar .status .loc{display:none}
-    .hero-sub,.about-body,.xp-list{overflow-wrap:anywhere}
+    .hero-sub,.about-body,.xp-list,.pblurb{overflow-wrap:anywhere}
   }
   :focus-visible{outline:2px solid var(--acid);outline-offset:3px;border-radius:2px}
 </style>
@@ -300,6 +337,7 @@
   <a href="#hero" data-sec="hero"><span class="tick"></span>Index</a>
   <a href="#about" data-sec="about"><span class="tick"></span>About</a>
   <a href="#experience" data-sec="experience"><span class="tick"></span>Experience</a>
+  <a href="#work" data-sec="work"><span class="tick"></span>Work</a>
   <a href="#stack" data-sec="stack"><span class="tick"></span>Stack</a>
   <a href="#impact" data-sec="impact"><span class="tick"></span>Impact</a>
   <a href="#contact" data-sec="contact"><span class="tick"></span>Contact</a>
@@ -316,9 +354,13 @@
     </h1>
     <p class="hero-sub">
       Five-plus years designing, building, and shipping <b>production AI/ML, deep learning, and
-      generative-AI systems</b> across telecommunications, banking, and healthcare — from
-      raw data pipelines to LLM-powered assistants serving millions of records.
+      generative-AI systems</b> across telecommunications, banking, and healthcare — from raw data
+      pipelines to LLM-powered assistants serving millions of records.
     </p>
+    <div class="hero-cta">
+      <a class="btn" href="#work">View work ↗</a>
+      <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Download CV ↓</a>
+    </div>
 
     <div class="stats">
       <div class="stat"><div class="v">05<i>+</i></div><div class="k">Years in production ML</div></div>
@@ -327,7 +369,7 @@
       <div class="stat"><div class="v">90<i>%+</i></div><div class="k">LLM response relevance</div></div>
     </div>
 
-    <div class="scroll-hint"><span class="bar"></span> Scroll · 00 → 05</div>
+    <div class="scroll-hint"><span class="bar"></span> Scroll · 00 → 06</div>
   </section>
 </main>
 
@@ -382,11 +424,11 @@
           <h3 class="xp-role">AI / Machine Learning Engineer</h3>
           <div class="xp-co"><b>CVS Health</b></div>
           <ul class="xp-list">
-            <li>Built end-to-end AI/ML pipelines (Spark, Airflow, ETL, feature engineering, deployment &amp; monitoring) across <b>50M+ healthcare records</b>, lifting data availability <span class="pct">+40%</span>.</li>
-            <li>Shipped deep-learning models for patient risk stratification, readmission &amp; claims-fraud detection, improving model accuracy <span class="pct">+25%</span>.</li>
-            <li>Engineered <b>LLM healthcare assistants</b> using RAG, vector search, FAISS &amp; Pinecone with <span class="pct">90%+</span> response relevance.</li>
-            <li>Automated clinical documentation &amp; coding with GenAI (OpenAI, LangChain, fine-tuning, LoRA), cutting manual effort <span class="pct">−35%</span>.</li>
-            <li>Stood up enterprise MLOps (MLflow, Kubeflow, CI/CD, model registry), reducing deployment time <span class="pct">−60%</span> at 99.9% availability.</li>
+            <li>Lifted healthcare data availability <span class="pct">+40%</span> by <b>building end-to-end AI/ML pipelines</b> across 50M+ patient records with Spark and Airflow.</li>
+            <li>Raised model accuracy <span class="pct">+25%</span> with <b>deep-learning models for patient risk stratification</b>, readmission prediction, and claims-fraud detection.</li>
+            <li>Hit 90%+ response relevance on <b>LLM clinical assistants</b> using RAG and vector search over FAISS/Pinecone.</li>
+            <li>Cut manual documentation effort <span class="pct">−35%</span> by <b>automating clinical coding</b> with LangChain and LoRA-fine-tuned models.</li>
+            <li>Slashed deployment time <span class="pct">−60%</span> at 99.9% availability through <b>enterprise MLOps</b> on MLflow and Kubeflow with a CI/CD model registry.</li>
           </ul>
         </div>
       </article>
@@ -401,11 +443,11 @@
           <h3 class="xp-role">Machine Learning Engineer</h3>
           <div class="xp-co"><b>Capital One</b></div>
           <ul class="xp-list">
-            <li>Delivered ML/DL &amp; predictive-analytics models for credit risk, fraud, segmentation &amp; loan-default prediction, improving accuracy <span class="pct">+30%</span>.</li>
-            <li>Built scalable ETL &amp; real-time pipelines (Spark, Airflow, PostgreSQL, MongoDB), reducing data-processing time <span class="pct">−45%</span>.</li>
-            <li>Engineered <b>LLM banking assistants</b> with RAG, semantic search, FAISS &amp; Pinecone at <span class="pct">90%+</span> response accuracy.</li>
-            <li>Designed GenAI apps to automate service, document analysis &amp; regulatory reporting, cutting manual effort <span class="pct">−40%</span>.</li>
-            <li>Implemented time-series forecasting &amp; anomaly detection for transaction monitoring and fraud prevention.</li>
+            <li>Improved model accuracy <span class="pct">+30%</span> across <b>credit-risk, fraud, and loan-default models</b> spanning segmentation and scoring.</li>
+            <li>Reduced data-processing time <span class="pct">−45%</span> by <b>building scalable ETL and real-time pipelines</b> on Spark and Airflow.</li>
+            <li>Reached 90%+ response accuracy with <b>LLM banking assistants</b> powered by RAG and semantic search over FAISS/Pinecone.</li>
+            <li>Trimmed manual effort <span class="pct">−40%</span> by <b>automating service, document analysis, and regulatory reporting</b> with GenAI.</li>
+            <li>Strengthened transaction monitoring and fraud prevention through <b>time-series forecasting and anomaly detection</b>.</li>
           </ul>
         </div>
       </article>
@@ -420,11 +462,11 @@
           <h3 class="xp-role">Data Scientist</h3>
           <div class="xp-co"><b>Jio</b></div>
           <ul class="xp-list">
-            <li>Modeled subscriber behavior &amp; churn (Scikit-learn, XGBoost, Spark MLlib, PySpark), improving customer retention <span class="pct">+25%</span>.</li>
-            <li>Built ETL &amp; data-lake solutions (Airflow, Spark, Hadoop, Hive, Snowflake, Cassandra) over <b>100M+ records</b>, cutting processing time <span class="pct">−40%</span>.</li>
-            <li>Processed real-time telecom streams (Kafka, Spark Streaming) to monitor network health, reducing incident resolution time <span class="pct">−30%</span>.</li>
-            <li>Developed forecasting, segmentation &amp; demand models for capacity planning and subscriber growth.</li>
-            <li>Built executive dashboards (Power BI, Tableau) tracking ARPU, CLV &amp; churn, raising decision efficiency <span class="pct">+35%</span>.</li>
+            <li>Boosted subscriber retention <span class="pct">+25%</span> with <b>churn and behavior models</b> built on XGBoost and Spark MLlib.</li>
+            <li>Cut processing time <span class="pct">−40%</span> by <b>building ETL and a data lake</b> over 100M+ records with Airflow, Spark, and Snowflake.</li>
+            <li>Reduced incident resolution time <span class="pct">−30%</span> via <b>real-time network monitoring</b> on Kafka and Spark Streaming.</li>
+            <li>Drove capacity planning and subscriber growth through <b>forecasting, segmentation, and demand models</b>.</li>
+            <li>Lifted decision efficiency <span class="pct">+35%</span> with <b>executive dashboards</b> tracking ARPU, CLV, and churn in Power BI and Tableau.</li>
           </ul>
         </div>
       </article>
@@ -432,9 +474,85 @@
     </div>
   </section>
 
+  <!-- WORK -->
+  <section id="work">
+    <div class="eyebrow reveal"><span class="num">03</span> Selected Work</div>
+    <div class="work-head reveal">
+      <p>Open-source projects built end-to-end — from data and modeling to serving. Each links to its repository on GitHub.</p>
+    </div>
+    <div class="work-grid">
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/rag-chatbot" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">LLM</span><span class="pidx">/01</span></div>
+        <h3 class="ptitle">Local RAG Chatbot</h3>
+        <p class="pblurb">Fully local retrieval-augmented chatbot: ingests and embeds Markdown docs into a Chroma vector store and answers via a llama.cpp-served LLM. FastAPI backend with streaming chat, document upload, conversation memory, and incremental re-indexing; React + TypeScript frontend.</p>
+        <div class="ptags"><span class="ptag">FastAPI</span><span class="ptag">llama.cpp</span><span class="ptag">ChromaDB</span><span class="ptag">React</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/generating-synthetic-data-using-gans" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">Generative AI</span><span class="pidx">/02</span></div>
+        <h3 class="ptitle">Synthetic Tabular Data with GANs</h3>
+        <p class="pblurb">TGAN/CTGAN generation of synthetic healthcare records, evaluated across statistical similarity (PCA, autoencoders, clustering), a custom privacy-at-risk metric, and downstream ML utility on length-of-stay and mortality prediction.</p>
+        <div class="ptags"><span class="ptag">CTGAN</span><span class="ptag">TGAN</span><span class="ptag">TensorFlow</span><span class="ptag">scikit-learn</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/mlops-app" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">MLOps</span><span class="pidx">/03</span></div>
+        <h3 class="ptitle">End-to-End MLOps on GCP</h3>
+        <p class="pblurb">Reference pipeline: Prefect ETL of SF 311 data into BigQuery, dbt transforms, MLflow experiment tracking, and a scikit-learn model served via FastAPI on Cloud Run — provisioned with Terraform and shipped through GitHub Actions.</p>
+        <div class="ptags"><span class="ptag">Prefect</span><span class="ptag">BigQuery</span><span class="ptag">dbt</span><span class="ptag">Terraform</span><span class="ptag">MLflow</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/create-million-parameter-llm-from-scratch" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">LLM</span><span class="pidx">/04</span></div>
+        <h3 class="ptitle">LLaMA From Scratch · 2.3M params</h3>
+        <p class="pblurb">A 2.3M-parameter LLaMA-style language model implemented from scratch in PyTorch — RMSNorm, rotary positional embeddings (RoPE), and SwiGLU — trained on character-level TinyShakespeare.</p>
+        <div class="ptags"><span class="ptag">PyTorch</span><span class="ptag">LLaMA</span><span class="ptag">RoPE</span><span class="ptag">Transformers</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/time-series-forecasting-python" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">Time Series</span><span class="pidx">/05</span></div>
+        <h3 class="ptitle">Time-Series Forecasting Benchmark</h3>
+        <p class="pblurb">End-to-end forecasting on the Beijing PM2.5 dataset benchmarking ~25 approaches — from ARIMA/SARIMAX and Holt-Winters to XGBoost/LightGBM and LSTM/DeepAR/Prophet — scored on MAE, RMSE, MAPE, and R².</p>
+        <div class="ptags"><span class="ptag">TensorFlow</span><span class="ptag">XGBoost</span><span class="ptag">LightGBM</span><span class="ptag">Prophet</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/computer-vision-projects" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">Computer Vision</span><span class="pidx">/06</span></div>
+        <h3 class="ptitle">Computer Vision Collection</h3>
+        <p class="pblurb">A set of CV notebooks: medical image classification (cataract, pneumonia, eye disease), traffic-sign and emotion recognition, driver-drowsiness detection, and OpenCV / YOLOv3 detection demos.</p>
+        <div class="ptags"><span class="ptag">TensorFlow/Keras</span><span class="ptag">CNN</span><span class="ptag">OpenCV</span><span class="ptag">YOLOv3</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/ecommerce-recommender" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">Recommenders</span><span class="pidx">/07</span></div>
+        <h3 class="ptitle">Multi-Modal E-commerce Recommender</h3>
+        <p class="pblurb">Fashion recommender exploring four strategies — collaborative, content-based, hybrid, and a multi-modal PyTorch model fusing user/product embeddings with ResNet50 image and SentenceTransformer text features over a GCN layer.</p>
+        <div class="ptags"><span class="ptag">PyTorch</span><span class="ptag">Flask</span><span class="ptag">ResNet50</span><span class="ptag">PyG</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/SaiSandeepk23/etl-data-pipeline-using-airflow" target="_blank" rel="noopener">
+        <div class="ptop"><span class="pcat">Data Engineering</span><span class="pidx">/08</span></div>
+        <h3 class="ptitle">Airflow ETL → Snowflake (SCD2)</h3>
+        <p class="pblurb">An Apache Airflow DAG extracting HR and salary data from PostgreSQL to S3, diffing against the warehouse, and loading into Snowflake with Slowly Changing Dimension Type 2 to track salary history over time.</p>
+        <div class="ptags"><span class="ptag">Airflow</span><span class="ptag">PostgreSQL</span><span class="ptag">Snowflake</span><span class="ptag">AWS S3</span></div>
+        <span class="plink">View repository ↗</span>
+      </a>
+
+    </div>
+    <div class="work-all reveal"><a href="https://github.com/SaiSandeepk23?tab=repositories" target="_blank" rel="noopener">See all repositories on GitHub ↗</a></div>
+  </section>
+
   <!-- STACK -->
   <section id="stack">
-    <div class="eyebrow reveal"><span class="num">03</span> Stack &amp; Capabilities</div>
+    <div class="eyebrow reveal"><span class="num">04</span> Stack &amp; Capabilities</div>
     <div class="cap-grid">
       <div class="cap reveal"><h4>Languages <span>/01</span></h4><div class="chips">
         <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">Scala</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">Bash</span>
@@ -459,20 +577,20 @@
 
   <!-- IMPACT -->
   <section id="impact">
-    <div class="eyebrow reveal"><span class="num">04</span> Impact, by the numbers</div>
+    <div class="eyebrow reveal"><span class="num">05</span> Impact, by the numbers</div>
     <div class="impact-grid">
-      <div class="imp reveal"><div class="big">150M<i>+</i></div><div class="lbl">Healthcare &amp; telecom records processed in production pipelines</div></div>
-      <div class="imp reveal"><div class="big"><i>−</i>60<i>%</i></div><div class="lbl">Model deployment time via enterprise MLOps</div></div>
-      <div class="imp reveal"><div class="big"><i>+</i>25<i>%</i></div><div class="lbl">Model accuracy on patient-risk &amp; fraud detection</div></div>
-      <div class="imp reveal"><div class="big">99.9<i>%</i></div><div class="lbl">Availability on production AI serving infrastructure</div></div>
-      <div class="imp reveal"><div class="big"><i>−</i>45<i>%</i></div><div class="lbl">Data-processing time on real-time banking pipelines</div></div>
-      <div class="imp reveal"><div class="big"><i>+</i>35<i>%</i></div><div class="lbl">Decision efficiency from analytics &amp; executive dashboards</div></div>
+      <div class="imp reveal"><div class="big">150M<i>+</i></div><div class="lbl">Records processed in production pipelines</div><div class="src">CVS Health + Jio</div></div>
+      <div class="imp reveal"><div class="big"><i>−</i>60<i>%</i></div><div class="lbl">Model deployment time via enterprise MLOps</div><div class="src">CVS Health</div></div>
+      <div class="imp reveal"><div class="big"><i>+</i>25<i>%</i></div><div class="lbl">Model accuracy on patient-risk &amp; fraud detection</div><div class="src">CVS Health</div></div>
+      <div class="imp reveal"><div class="big">99.9<i>%</i></div><div class="lbl">Availability on production AI serving</div><div class="src">CVS Health</div></div>
+      <div class="imp reveal"><div class="big"><i>−</i>45<i>%</i></div><div class="lbl">Data-processing time on banking pipelines</div><div class="src">Capital One</div></div>
+      <div class="imp reveal"><div class="big"><i>+</i>35<i>%</i></div><div class="lbl">Decision efficiency from analytics dashboards</div><div class="src">Jio</div></div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="eyebrow reveal"><span class="num">05</span> Contact</div>
+    <div class="eyebrow reveal"><span class="num">06</span> Contact</div>
     <h2 class="contact-h reveal">Let's build something<br><em>measurable.</em></h2>
     <div class="links reveal">
       <a class="link" href="mailto:saisandeepk1999@gmail.com">
@@ -483,6 +601,9 @@
       </a>
       <a class="link" href="https://github.com/SaiSandeepk23" target="_blank" rel="noopener">
         <span class="lk">GitHub</span><span class="lv">github.com/SaiSandeepk23</span><span class="arr">↗</span>
+      </a>
+      <a class="link" href="resume.pdf" target="_blank" rel="noopener">
+        <span class="lk">Résumé</span><span class="lv">Download CV (PDF)</span><span class="arr">↓</span>
       </a>
       <a class="link" href="tel:+15612141251">
         <span class="lk">Phone</span><span class="lv">+1 (561) 214-1251</span><span class="arr">↗</span>
@@ -498,7 +619,6 @@
 </main>
 
 <script>
-  // active-section index rail
   const links = document.querySelectorAll('.rail a');
   const secs = [...links].map(a => document.getElementById(a.dataset.sec));
   const navObs = new IntersectionObserver((entries)=>{
@@ -511,7 +631,6 @@
   },{rootMargin:'-45% 0px -50% 0px'});
   secs.forEach(s=>s && navObs.observe(s));
 
-  // scroll reveal
   const revObs = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target);} });
   },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
@@ -520,7 +639,6 @@
     revObs.observe(el);
   });
 
-  // cursor glow (pointer-fine only)
   const glow = document.getElementById('glow');
   if(window.matchMedia('(pointer:fine)').matches){
     window.addEventListener('mousemove', (e)=>{
