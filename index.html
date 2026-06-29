@@ -200,16 +200,30 @@
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- ABOUT ---------- */
-  .about-grid{display:grid;grid-template-columns:330px 1fr;gap:clamp(30px,5vw,76px);align-items:start}
+  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:clamp(34px,5vw,72px);align-items:start}
   @media(max-width:880px){.about-grid{grid-template-columns:1fr}}
-  .id-col{display:flex;flex-direction:column}
-  @media(max-width:880px){.id-col{max-width:380px}}
-  .portrait{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 16%;display:block;
-    border:1px solid var(--line-strong);border-bottom:0;
-    filter:grayscale(.55) contrast(1.04) brightness(.95);
+  .portrait-wrap{position:relative}
+  @media(max-width:880px){.portrait-wrap{max-width:340px}}
+  .portrait{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 18%;display:block;
+    border:1px solid var(--line-strong);
+    filter:grayscale(.6) contrast(1.04) brightness(.94);
     transition:filter .6s cubic-bezier(.2,.8,.2,1)}
-  .id-col:hover .portrait{filter:none}
-  .id-col .meta-card{border-color:var(--line-strong)}
+  .portrait-wrap:hover .portrait{filter:none}
+  .portrait-wrap::before{content:"";position:absolute;top:-1px;left:-1px;width:34px;height:34px;
+    border-top:2px solid var(--acid);border-left:2px solid var(--acid);z-index:2;pointer-events:none}
+  .portrait-cap{display:flex;justify-content:space-between;gap:10px;margin-top:14px;
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim-2)}
+  .portrait-cap .fig{color:var(--acid)}
+  /* spec readout strip */
+  .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);margin-top:clamp(42px,6vw,72px)}
+  @media(max-width:760px){.spec{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.spec{grid-template-columns:1fr}}
+  .spec-cell{background:var(--ink);padding:22px 24px;display:flex;flex-direction:column;gap:9px;transition:background .35s}
+  .spec-cell:hover{background:var(--ink-3)}
+  .spec-cell .sk{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim-2)}
+  .spec-cell .sv{font-size:15.5px;color:var(--paper);line-height:1.35}
+  .spec-cell .sv b{color:var(--acid);font-weight:600}
   .lead{font-family:var(--font-display);font-weight:330;font-size:clamp(24px,3.4vw,40px);
     line-height:1.32;letter-spacing:-.01em}
   .lead em{font-style:italic;color:var(--acid)}
@@ -408,16 +422,9 @@
   <section id="about">
     <div class="eyebrow reveal"><span class="num">01</span> Profile</div>
     <div class="about-grid">
-      <div class="id-col reveal">
+      <div class="portrait-wrap reveal">
         <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Sai Sandeep Kethiboina" width="760" height="949" loading="lazy" />
-        <div class="meta-card">
-          <div class="meta-row"><span class="mk">Discipline</span><span class="mv">AI / ML Engineering</span></div>
-          <div class="meta-row"><span class="mk">Experience</span><span class="mv"><b>5+ years</b></span></div>
-          <div class="meta-row"><span class="mk">Current</span><span class="mv">AI/ML Eng · CVS Health</span></div>
-          <div class="meta-row"><span class="mk">Education</span><span class="mv">M.S. Computers &amp; Information Science</span></div>
-          <div class="meta-row"><span class="mk">Domains</span><span class="mv">Telecom · Banking · Healthcare</span></div>
-          <div class="meta-row"><span class="mk">Based</span><span class="mv">Texas, USA</span></div>
-        </div>
+        <div class="portrait-cap"><span class="fig">Fig. 01</span><span>Sai Sandeep Kethiboina</span></div>
       </div>
       <div class="reveal">
         <p class="lead">AI/ML engineer who turns messy enterprise data into <em>predictive systems</em> and <em>LLM products</em> that move real business metrics.</p>
@@ -430,6 +437,14 @@
           and outcomes you can measure.
         </p>
       </div>
+    </div>
+    <div class="spec reveal">
+      <div class="spec-cell"><span class="sk">Discipline</span><span class="sv">AI / ML Engineering</span></div>
+      <div class="spec-cell"><span class="sk">Experience</span><span class="sv"><b>5+ years</b> in production ML</span></div>
+      <div class="spec-cell"><span class="sk">Currently</span><span class="sv">AI/ML Engineer · CVS Health</span></div>
+      <div class="spec-cell"><span class="sk">Education</span><span class="sv">M.S. Computers &amp; Information Science</span></div>
+      <div class="spec-cell"><span class="sk">Domains</span><span class="sv">Telecom · Banking · Healthcare</span></div>
+      <div class="spec-cell"><span class="sk">Based</span><span class="sv">Texas, USA</span></div>
     </div>
   </section>
 
