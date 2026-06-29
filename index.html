@@ -200,8 +200,16 @@
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- ABOUT ---------- */
-  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+  .about-grid{display:grid;grid-template-columns:330px 1fr;gap:clamp(30px,5vw,76px);align-items:start}
   @media(max-width:880px){.about-grid{grid-template-columns:1fr}}
+  .id-col{display:flex;flex-direction:column}
+  @media(max-width:880px){.id-col{max-width:380px}}
+  .portrait{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 16%;display:block;
+    border:1px solid var(--line-strong);border-bottom:0;
+    filter:grayscale(.55) contrast(1.04) brightness(.95);
+    transition:filter .6s cubic-bezier(.2,.8,.2,1)}
+  .id-col:hover .portrait{filter:none}
+  .id-col .meta-card{border-color:var(--line-strong)}
   .lead{font-family:var(--font-display);font-weight:330;font-size:clamp(24px,3.4vw,40px);
     line-height:1.32;letter-spacing:-.01em}
   .lead em{font-style:italic;color:var(--acid)}
@@ -400,6 +408,17 @@
   <section id="about">
     <div class="eyebrow reveal"><span class="num">01</span> Profile</div>
     <div class="about-grid">
+      <div class="id-col reveal">
+        <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Sai Sandeep Kethiboina" width="760" height="949" loading="lazy" />
+        <div class="meta-card">
+          <div class="meta-row"><span class="mk">Discipline</span><span class="mv">AI / ML Engineering</span></div>
+          <div class="meta-row"><span class="mk">Experience</span><span class="mv"><b>5+ years</b></span></div>
+          <div class="meta-row"><span class="mk">Current</span><span class="mv">AI/ML Eng · CVS Health</span></div>
+          <div class="meta-row"><span class="mk">Education</span><span class="mv">M.S. Computers &amp; Information Science</span></div>
+          <div class="meta-row"><span class="mk">Domains</span><span class="mv">Telecom · Banking · Healthcare</span></div>
+          <div class="meta-row"><span class="mk">Based</span><span class="mv">Texas, USA</span></div>
+        </div>
+      </div>
       <div class="reveal">
         <p class="lead">AI/ML engineer who turns messy enterprise data into <em>predictive systems</em> and <em>LLM products</em> that move real business metrics.</p>
         <p class="about-body">
@@ -410,14 +429,6 @@
           are non-negotiable. I care about the unglamorous parts: clean pipelines, monitored models,
           and outcomes you can measure.
         </p>
-      </div>
-      <div class="meta-card reveal">
-        <div class="meta-row"><span class="mk">Discipline</span><span class="mv">AI / ML Engineering</span></div>
-        <div class="meta-row"><span class="mk">Experience</span><span class="mv"><b>5+ years</b></span></div>
-        <div class="meta-row"><span class="mk">Current</span><span class="mv">AI/ML Eng · CVS Health</span></div>
-        <div class="meta-row"><span class="mk">Education</span><span class="mv">M.S. Computers &amp; Information Science</span></div>
-        <div class="meta-row"><span class="mk">Domains</span><span class="mv">Telecom · Banking · Healthcare</span></div>
-        <div class="meta-row"><span class="mk">Based</span><span class="mv">United States</span></div>
       </div>
     </div>
   </section>
